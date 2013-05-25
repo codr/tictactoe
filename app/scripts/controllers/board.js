@@ -13,7 +13,7 @@ angular.module('tictactoeApp')
               'bottomRight'];
 
   $scope.turnNumber = 0;
-  $scope.$watch('turnNumber', function(newValue, oldValue){
+  $scope.$watch('turnNumber', function(){
     if($scope.turnNumber % 2 !== 0){
       computerMove();
     }
@@ -44,29 +44,33 @@ angular.module('tictactoeApp')
     //horizontal
     for(i = 0; i < 9; i=i+3){
       if ($scope[tiles[i]] === $scope[tiles[i+1]] &&
-        $scope[tiles[i+1]] === $scope[tiles[i+2]] &&
-        !isEmpty(tiles[i])){
-        return $scope.winner = $scope[tiles[i]];
+          $scope[tiles[i+1]] === $scope[tiles[i+2]] &&
+          !isEmpty(tiles[i])){
+        $scope.winner = $scope[tiles[i]];
+        return $scope.winner;
       }
     }
     //vertical
     for(i = 0; i < 3; i++){
       if($scope[tiles[i]] === $scope[tiles[i+3]] &&
-        $scope[tiles[i+3]] === $scope[tiles[i+6]] &&
-        !isEmpty(tiles[i])){
-        return $scope.winner = $scope[tiles[i]];
+          $scope[tiles[i+3]] === $scope[tiles[i+6]] &&
+          !isEmpty(tiles[i])){
+        $scope.winner = $scope[tiles[i]];
+        return $scope.winner;
       }
     }
     //diagonal
     if($scope[tiles[0]] === $scope[tiles[4]] &&
-      $scope[tiles[4]] === $scope[tiles[8]] &&
-      !isEmpty(tiles[0])){
-      return $scope.winner = $scope[tiles[0]];
+        $scope[tiles[4]] === $scope[tiles[8]] &&
+        !isEmpty(tiles[0])){
+      $scope.winner = $scope[tiles[i]];
+      return $scope.winner;
     }
     if($scope[tiles[2]] === $scope[tiles[4]] &&
-      $scope[tiles[4]] === $scope[tiles[6]] &&
-      !isEmpty(tiles[2])){
-      return $scope.winner = $scope[tiles[2]];
+        $scope[tiles[4]] === $scope[tiles[6]] &&
+        !isEmpty(tiles[2])){
+      $scope.winner = $scope[tiles[i]];
+      return $scope.winner;
     }
     return null;
   };
