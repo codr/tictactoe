@@ -1,0 +1,33 @@
+<div class="game row-fluid" ng-controller="BoardCtrl">
+  <div class="span6 offset3">
+    <div class="board">
+      <div class="row-fluid">
+        <button class="span4 btn btn-large" ng-click="enterMark('topLeft')">{{topLeft}}</button>
+        <button class="span4 btn btn-large" ng-click="enterMark('topCenter')">{{topCenter}}</button>
+        <button class="span4 btn btn-large" ng-click="enterMark('topRight')">{{topRight}}</button>
+      </div>
+      <div class="row-fluid">
+        <button class="span4 btn btn-large" ng-click="enterMark('middleLeft')">{{middleLeft}}</button>
+        <button class="span4 btn btn-large" ng-click="enterMark('middleCenter')">{{middleCenter}}</button>
+        <button class="span4 btn btn-large" ng-click="enterMark('middleRight')">{{middleRight}}</button>
+      </div>
+      <div class="row-fluid">
+        <button class="span4 btn btn-large" ng-click="enterMark('bottomLeft')">{{bottomLeft}}</button>
+        <button class="span4 btn btn-large" ng-click="enterMark('bottomCenter')">{{bottomCenter}}</button>
+        <button class="span4 btn btn-large" ng-click="enterMark('bottomRight')">{{bottomRight}}</button>
+      </div>
+    </div>
+    <div id="modal" class="modal hide fade">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="resetGame()">×</button>
+        <h3>Game Over</h3>
+      </div>
+      <div class="modal-body">
+        <h2>{{modalMessage}}</h2>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" ng-click="resetGame()">New Game</button>
+      </div>
+    </div>
+  </div>
+</div>
